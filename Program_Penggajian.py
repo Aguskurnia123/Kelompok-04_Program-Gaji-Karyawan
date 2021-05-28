@@ -74,28 +74,12 @@ def tunjang():
 
     tang = int(database[int(Password[3])]['Tanggungan'])
     #TUNJANGAN DI DAPAT DARI JABATAN
-    if gol == "Direktur utama":
+    if gol == 1:
         tunjab = 200000
-    elif gol == "Direktur keuangan":
+    elif gol == 2:
         tunjab = 150000
-    elif gol == "Direktur Personalia":
-        tunjab = 150000
-    elif gol == "Direktur Pemasaran":
-        tunjab = 150000
-    elif gol == "Manager Personalia":
-        tunjab = 100000
-    elif gol == "Admin":
-        tunjab = 100000
-    elif gol == "Manager Pemasaran":
-        tunjab = 100000
-    elif gol == "Manager Pabrik":
-        tunjab = 100000
-    elif gol == "Manager":
-        tunjab = 100000
-    elif gol == "Akuntan":
-        tunjab = 100000
     else:
-        tunjab = 50000
+        tunjab = 100000
     #TUNJANGAN DARI TANGGUNGAN
     if tang == 1:
         tuntang = 200000
@@ -123,57 +107,57 @@ def bonus():
     jam_lbur = int(database[int(Password[3])]['Jam Lembur'])
 
     #Bonus Jam Lembur
-    if gol == "Direktur utama":
+    if jab == "Direktur utama":
         if 0 <= jam_lbur < 3:
             Bonus = 100000*jam_lbur
         else:
             Bonus = 100000*3
-    elif gol == "Direktur keuangan":
+    elif jab == "Direktur keuangan":
         if 0 <= jam_lbur < 5:
             Bonus = 75000*jam_lbur
         else:
             Bonus = 75000*5
-    elif gol == "Direktur Personalia":
+    elif jab == "Direktur Personalia":
         if 0 <= jam_lbur < 0:
             Bonus = 75000*jam_lbur
         else:
             Bonus = 75000*0
-    elif gol == "Direktur Pemasaran":
+    elif jab == "Direktur Pemasaran":
         if 0 <= jam_lbur < 3:
             Bonus = 75000*jam_lbur
         else:
             Bonus = 75000*3
-    elif gol == "Manager Personalia":
+    elif jab == "Manager Personalia":
         if 0 <= jam_lbur < 3:
             Bonus = 50000*jam_lbur
         else:
             Bonus = 50000*3
-    elif gol == "Admin":
+    elif jab == "Admin":
         if 0 <= jam_lbur < 4:
             Bonus = 50000*jam_lbur
         else:
             Bonus = 50000*4
-    elif gol == "Manager Pemasaran":
+    elif jab == "Manager Pemasaran":
         if 0 <= jam_lbur < 5:
             Bonus = 50000*jam_lbur
         else:
             Bonus = 50000*5
-    elif gol == "Manager Pabrik":
+    elif jab == "Manager Pabrik":
         if 0 <= jam_lbur < 4:
             Bonus = 50000*jam_lbur
         else:
             Bonus = 50000*4
-    elif gol == "Manager":
+    elif jab == "Manager":
         if 0 <= jam_lbur < 5:
             Bonus = 50000*jam_lbur
         else:
             Bonus = 50000*5
-    elif gol == "Akuntan":
+    elif jab == "Akuntan":
         if 0 <= jam_lbur < 4:
             Bonus = 50000*jam_lbur
         else:
             Bonus = 50000*4
-    elif gol == "Akuntan":
+    elif jab == "Akuntan":
         if 0 <= jam_lbur < 3:
             Bonus = 50000*jam_lbur
         else:
