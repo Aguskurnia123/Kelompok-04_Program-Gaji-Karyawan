@@ -198,3 +198,27 @@ def gaji():
 def tabungan():
     global tab
     tab = int(0.1*int(database[int(Password[3])]['Gaji']))
+
+#6. Rekening
+def rekening()
+    print('Apakah ingin mengambil gaji?(y/n)')
+    kep = input(">> ")
+    if kep != "y":
+        tampilan_menu()
+    else :
+        print("Pilih Metode Pembayaran\n"
+              "[1] Cash\n"
+              "[2] Transfer")
+        pem = int(input('>> ')
+        if pem == 1:
+              cetak()
+        elif pem == 2:
+              bank = int(input('Rekening Bank : '))
+              print("Terima kasih Gaji Anda akan segera kami kirim\n"
+                    "Apabila belum terkirim dapat hubungi admin.")
+              with open('buku_rekening.csv','a') as f :
+                  data_rekening = csv.writer(f, delimiter = ',', quotechar = '"', quoting = csv.QUOTE_MINIMAL )
+                  data_rekening.writerow([[database[int(Password[3])]['Nama']], str(bank)])
+    tampilan_menu()               
+              
+              
