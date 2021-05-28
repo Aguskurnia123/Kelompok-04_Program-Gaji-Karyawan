@@ -166,3 +166,35 @@ def bonus():
     ach = int(database[int(Password[3])]['Gaji'])
     #Total Bonus
     tot_bonus = int(Bonus+ach)
+    
+#3. Kasbon
+def kasbon():
+    global bon
+    bon = int(database[int(Password[3])]['Kasbon'])
+
+#4. Gaji
+def gaji():
+    global gaber
+    tunjang()
+    bonus()
+    kasbon()
+    tabungan()
+    print('='*35)
+    print('========== GAJI KARYAWAN ==========')
+    print('='*35)
+    sala = int(database[int(Password[3])]['Gaji'])
+    gapok = int(h * sala)
+    gaber = int((gapok+tot_tun+tot_bonus)-(bon+tab))
+    print("- Gaji Pokok              %d "% gapok)
+    print("- Tunjangan                %d "% tot_tun)
+    print("- Bonus                    %d "% tot_bonus)
+    print("- Kasbon                  %d "% (bon*(-1)))
+    print("- Tabungan                 %d "% (tab*(-1)))
+    print("------------------------------------- +")
+    print("Gaji                   Rp. %d " % gaber)
+    rekening()
+
+#5. Tabungan
+def tabungan():
+    global tab
+    tab = int(0.1*int(database[int(Password[3])]['Gaji']))
