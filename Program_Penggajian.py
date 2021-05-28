@@ -31,8 +31,8 @@ def login():
                 return login()
             elif p ==2:
                 print("Silahkan hubungi\n"
-                      "1. Makmur(02345678)\n"
-                      "2. Abdi(025678001)")
+                      "1. Untai(02345678)\n"
+                      "2. Miami(025678001)")
                 exit()
             else:
                 exit()
@@ -63,3 +63,122 @@ def display():
     identitas()
 #Mencoba memanggil identitas karyawan
 display()
+
+#1. Tunjangan
+def tunjang():
+    global tunjab
+    global tang
+    global tuntang
+    global tunsta
+    global tot_tun
+
+    tang = int(database[int(Password[3])]['Tanggungan'])
+    #TUNJANGAN DI DAPAT DARI JABATAN
+    if gol == "Direktur utama":
+        tunjab = 200000
+    elif gol == "Direktur keuangan":
+        tunjab = 150000
+    elif gol == "Direktur Personalia":
+        tunjab = 150000
+    elif gol == "Direktur Pemasaran":
+        tunjab = 150000
+    elif gol == "Manager Personalia":
+        tunjab = 100000
+    elif gol == "Admin":
+        tunjab = 100000
+    elif gol == "Manager Pemasaran":
+        tunjab = 100000
+    elif gol == "Manager Pabrik":
+        tunjab = 100000
+    elif gol == "Manager":
+        tunjab = 100000
+    elif gol == "Akuntan":
+        tunjab = 100000
+    else:
+        tunjab = 50000
+    #TUNJANGAN DARI TANGGUNGAN
+    if tang == 1:
+        tuntang = 200000
+    elif tang == 2:
+        tuntang = 2 * 200000
+    elif tang == 3:
+        tuntang = 3 * 200000
+    else:
+        tuntang = 4 * 200000
+    #TUNJANGAN DARI STATUS
+    if status == 'Single':
+        tunsta = 100000
+    elif status == 'Keluarga':
+        tunsta = 300000
+    else:
+        tunsta = 0
+    tot_tun = int(tunjab+tuntang+tunsta)
+
+#2. Bonus
+def bonus():
+    global Bonus
+    global jam_lbur
+    global tot_bonus
+    global ach
+    jam_lbur = int(database[int(Password[3])]['Jam Lembur'])
+
+    #Bonus Jam Lembur
+    if gol == "Direktur utama":
+        if 0 <= jam_lbur < 3:
+            Bonus = 100000*jam_lbur
+        else:
+            Bonus = 100000*3
+    elif gol == "Direktur keuangan":
+        if 0 <= jam_lbur < 5:
+            Bonus = 75000*jam_lbur
+        else:
+            Bonus = 75000*5
+    elif gol == "Direktur Personalia":
+        if 0 <= jam_lbur < 0:
+            Bonus = 75000*jam_lbur
+        else:
+            Bonus = 75000*0
+    elif gol == "Direktur Pemasaran":
+        if 0 <= jam_lbur < 3:
+            Bonus = 75000*jam_lbur
+        else:
+            Bonus = 75000*3
+    elif gol == "Manager Personalia":
+        if 0 <= jam_lbur < 3:
+            Bonus = 50000*jam_lbur
+        else:
+            Bonus = 50000*3
+    elif gol == "Admin":
+        if 0 <= jam_lbur < 4:
+            Bonus = 50000*jam_lbur
+        else:
+            Bonus = 50000*4
+    elif gol == "Manager Pemasaran":
+        if 0 <= jam_lbur < 5:
+            Bonus = 50000*jam_lbur
+        else:
+            Bonus = 50000*5
+    elif gol == "Manager Pabrik":
+        if 0 <= jam_lbur < 4:
+            Bonus = 50000*jam_lbur
+        else:
+            Bonus = 50000*4
+    elif gol == "Manager":
+        if 0 <= jam_lbur < 5:
+            Bonus = 50000*jam_lbur
+        else:
+            Bonus = 50000*5
+    elif gol == "Akuntan":
+        if 0 <= jam_lbur < 4:
+            Bonus = 50000*jam_lbur
+        else:
+            Bonus = 50000*4
+    elif gol == "Akuntan":
+        if 0 <= jam_lbur < 3:
+            Bonus = 50000*jam_lbur
+        else:
+            Bonus = 50000*3
+    #Bonus Achievement
+    ach = int(database[int(Password[3])]['Gaji'])
+    #Total Bonus
+    tot_bonus = int(Bonus+ach)
