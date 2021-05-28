@@ -1,0 +1,13 @@
+NIK,Nama,Jabatan,Golongan,Gaji,Kasbon,Hari,Tanggungan,Status,Jam Lembur,
+1000,Mika,Direktur utama,1,400000,100000,22,3,Single,3
+1001,Jesica,Direktur keuangan,2,350000,200000,20,3,Keluarga,5
+1002,Abdul,Direktur Personalia,2,350000,75000,22,4,Keluarga,0
+1003,Amin,Direktur Pemasaran,2,2750000,0,22,0,Single,3
+1004,Yummy,Manager Personalia,3,200000,50000,21,3,Keluarga,3
+1005,Untai,Admin,3,175000,0,20,3,Keluarga,4
+1006,Miami,Admin,3,175000,50000,22,4,Keluarga,4
+1007,Hana,Manager Pemasaran,3,200000,50000,22,3,Keluarga,5
+1008,Mey,Manager Pabrik,3,200000,0,21,3,Keluarga,4
+1009,Sakti,Manager,3,200000,75000,22,0,Single,5
+1010,Marun,Akuntan,3,200000,50000,22,4,Keluarga,4
+1011,Stella,Akuntan,3,200000,30000,22,2,Keluarga,3
