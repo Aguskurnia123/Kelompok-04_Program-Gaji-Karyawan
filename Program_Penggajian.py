@@ -61,8 +61,7 @@ def identitas():
 
 def display():
     identitas()
-#Mencoba memanggil identitas karyawan
-display()
+    tampilan_menu()
 
 #1. Tunjangan
 def tunjang():
@@ -200,7 +199,7 @@ def tabungan():
     tab = int(0.1*int(database[int(Password[3])]['Gaji']))
 
 #6. Rekening
-def rekening()
+def rekening():
     print('Apakah ingin mengambil gaji?(y/n)')
     kep = input(">> ")
     if kep != "y":
@@ -219,6 +218,87 @@ def rekening()
               with open('buku_rekening.csv','a') as f :
                   data_rekening = csv.writer(f, delimiter = ',', quotechar = '"', quoting = csv.QUOTE_MINIMAL )
                   data_rekening.writerow([[database[int(Password[3])]['Nama']], str(bank)])
-    tampilan_menu()               
-              
-              
+    tampilan_menu()    
+
+        #Menu dalam Program
+def tampilan_menu():
+    print("="*30)
+    pil_menu= ('Tampilan Menu\n'
+          '[1] Tunjangan\n'
+          '[2] Bonus\n'
+          '[3] Kasbon\n'
+          '[4] Gaji\n'
+          '[5] Tabungan\n'
+          '[6] Edit Identitas\n'
+          '[7] LOGOUT ')
+    print(pil_menu)
+    menu = int(input("Pilih Menu>>"))
+    
+    if menu == 1:    #Menu Tunjangan
+        tunjang()
+        print('========== TUNJANGAN ==========')
+        print('- Tunjangan Jabatan         Rp. %d ' % tunjab)
+        print('- Tunjangan Tanggungan      Rp. %d ' % tuntang)
+        print('- Tunjangan Status          Rp. %d ' % tunsta)
+        print('------------------------------------- +')
+        print('Total Tunjangan didapat     Rp. %d ' % tot_tun)
+        x = 'yummy'
+        while x != ' ':
+            back = input('Kembali ke menu? (y) = ')
+            if back == 'y':
+                return tampilan_menu()
+            else:
+                continue
+    elif menu == 2: #Menu Bonus
+        bonus()
+        print('========== BONUS ==========')
+        print('- Bonus Lembur              Rp. %d ' % Bonus)
+        print('- Penghargaan               Rp. %d ' % ach)
+        print('------------------------------------- +')
+        print('Total Bonus didapat         Rp. %d ' % tot_bonus)
+        x = 'yummy'
+        while x != ' ':
+            back = input('Kembali ke menu? (y) = ')
+            if back == 'y':
+                return tampilan_menu()
+            else:
+                continue
+    elif menu == 3:  #Menu Kasbon
+        kasbon()
+        print('========== KASBON ==========')
+        print('Kasbon anda sebesar Rp. %d '% bon)
+        x = 'yummy'
+        while x != ' ':
+            back = input('Kembali ke menu? (y) = ')
+            if back == 'y':
+                return tampilan_menu()
+            else:
+                continue    
+    elif menu == 4: #Menu Gaji
+        gaji()   
+    elif menu == 5:  #Menu Tabungan
+        tabungan()
+        print('========== TABUNGAN ==========')
+        print('- Tabungan bulan ini       Rp. %d' % tab)
+        x = 'yummy'
+        while x != ' ':
+            back = input('Kembali ke menu? (y) = ')
+            if back == 'y':
+                return tampilan_menu()
+            else:
+                continue
+    elif menu == 6:  #Menu Edit
+        edit()
+    elif menu == 7: #Menu Log Out
+        login()
+        tampilan_menu()      
+    else:
+        print("Pilihan tidak ada")
+        tampilan_menu()
+def cetak():
+    print('Cetak Slip Gaji') 
+                  
+if __name__ == '__main__':
+    while(True):
+        display()
+        break
