@@ -198,6 +198,9 @@ def tabungan():
     global tab
     tab = int(0.1*int(database[int(Password[3])]['Gaji']))
 
+def edit():
+    print("Edit Identitas")
+    
 #6. Rekening
 def rekening():
     print('Apakah ingin mengambil gaji?(y/n)')
@@ -208,7 +211,7 @@ def rekening():
         print("Pilih Metode Pembayaran\n"
               "[1] Cash\n"
               "[2] Transfer")
-        pem = int(input('>> ')
+        pem = int(input('>> '))
         if pem == 1:
               cetak()
         elif pem == 2:
