@@ -1,6 +1,10 @@
 import csv
 
-print('SIGN IN')
+print("="*30)
+print(" ")
+print("*"*10+'SIGN IN'+"*"*10)
+print(" ")
+print("="*30)
 
 with open('Book1.csv') as csvfile:
     reader = csv.DictReader(csvfile)
@@ -11,7 +15,6 @@ with open('Book1.csv') as csvfile:
 def login():
     global Username
     global Password
-    #global row
 
     loggedin = False
     while not loggedin:
