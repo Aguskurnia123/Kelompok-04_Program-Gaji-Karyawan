@@ -1,10 +1,13 @@
 import csv
 
-print("="*30)
-print(" ")
-print("*"*10+'SIGN IN'+"*"*10)
-print(" ")
-print("="*30)
+salam = "Selamat Datang dalam Program Penggajian Karyawan."
+print("\n" + salam.center(50))
+print("")
+batas = "=" * 30
+print(batas.center(50, "="))
+log_in = "=" * 10 + ' HALAMAN LOG IN ' + "=" * 10
+print(log_in.center(50))
+print(batas.center(50,"="))
 
 with open('Book1.csv') as csvfile:
     reader = csv.DictReader(csvfile)
@@ -15,20 +18,21 @@ with open('Book1.csv') as csvfile:
 def login():
     global Username
     global Password
-
+    print("Silahkan Masukan Nama dan NIK.\n")
     loggedin = False
     while not loggedin:
         Username = input('Nama  : ')
         Password = input('NIK   : ')
+        x = Username.upper()
         for row in database:
-            Username_File = row['Nama']
+            Username_File = row['Nama'].upper()
             Password_File = row['NIK']
-            if (Username_File == Username and
+            if (Username_File == x and
                 Password_File == Password ):
                 loggedin = True
                 print('Login Berhasil.')
         if loggedin is not True:
-            print ('Login gagal, silahkan \n [1] masukkan kembali \n [2] hubungi admin ')
+            print ('Data anda tidak terdaftar di dalam database silahkan : \n [1] masukkan kembali \n [2] hubungi admin ')
             p = int(input(">>"))
             if p == 1:
                 return login()
