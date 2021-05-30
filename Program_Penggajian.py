@@ -197,8 +197,6 @@ def gaji():
 def tabungan():
     global tab
     tab = int(0.1*int(database[int(Password[3])]['Gaji']))
-<<<<<<< HEAD
-=======
 
 def edit():
     print("Edit Identitas")
@@ -307,4 +305,4 @@ if __name__ == '__main__':
     while(True):
         display()
         break
->>>>>>> f2546c9e1515be8f5fded26b140b5f473c0fd466
+
