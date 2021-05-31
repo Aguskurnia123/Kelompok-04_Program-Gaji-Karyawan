@@ -205,10 +205,23 @@ def tabungan():
     global tab
     tab = int(0.1*int(database[int(Password[3])]['Gaji']))
 
-def edit():
-    print("Edit Identitas")
+#6. Menu edit
+def edit_biodata():
+    print("silakan mengisi formulir berikut sesuai perubahan biodata anda.")
+    Jabatan = str(input("Jabatan :"))
+    hari_kerja = str(input('Jumlah hari kerja : '))
+    lembur = str(input('Jumlah jam lembur: '))
+    Tanggung = str(input('Jumlah tanggungan: '))
+    stat = str(input('Status perkawinan:'))
+    Tabunng = str(input('Jumlah Tabungan :'))
+    kasbn = str(input('Jumlah kasbon: '))
+    x = 'Nama              : {}\nNIK               : {}\nJabatan           : {}\nJumlah hari kerja : {}\nJumlah jam lembur : {}\nJumlah tanggungan : {}\nStatus perkawinan : {}\nJumlah Tabungan   : {}\nJumlah Kasbon     : {}\n\nDemikian surat pernyataan perubahan ini saya sampaikan, atas perhatiannya saya\nucapkan terima kasih.\n\nWassalamualaikum Wr Wb.\n\nDengan Hormat,\nKaryawan Perusahaan\n\n\n\n...............'.format(Username,Password,Jabatan,hari_kerja,lembur,Tanggung,stat,Tabunng,kasbn)
+    with open('Surat_Edit_Data_Diri.txt','a') as sp:
+        sp.write(x)
+        sp.close()
+    tampilan_menu()
     
-#6. Rekening
+#Rekening
 def rekening():
     print('Apakah ingin mengambil gaji?(y/n)')
     kep = input(">> ")
@@ -298,7 +311,7 @@ def tampilan_menu():
             else:
                 continue
     elif menu == 6:  #Menu Edit
-        edit()
+        edit_biodata()
     elif menu == 7: #Menu Log Out
         login()
         tampilan_menu()      
