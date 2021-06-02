@@ -79,30 +79,31 @@ def tunjang():
     global tot_tun
 
     tang = int(database[int(Password[3])]['Tanggungan'])
-    #TUNJANGAN DI DAPAT DARI JABATAN
-    if gol == 1:
-        tunjab = 200000
-    elif gol == 2:
-        tunjab = 150000
+    # TUNJANGAN DI DAPAT DARI JABATAN
+    if gol == 1:                    # Tunjangan Jabatan
+        tunjab = 250000             # Nilai tunjangan Direktur Utama masuk ke dalam golongan 1
+    elif gol == 2:                  # Nilai tunjangan Direktur keuangan,Direktur Personalia, dan
+        tunjab = 2000000            # Direktur Pemasaran masuk ke dalam golongan 2
+    elif gol == 3:                  # Nilai tunjangan Direktur keuangan,Direktur Personalia, dan
+        tunjab = 150000             # Direktur Pemasaran masuk ke dalam golongan 3
     else:
-        tunjab = 100000
-    #TUNJANGAN DARI TANGGUNGAN
-    if tang == 1:
-        tuntang = 200000
-    elif tang == 2:
-        tuntang = 2 * 200000
-    elif tang == 3:
-        tuntang = 3 * 200000
-    else:
-        tuntang = 4 * 200000
-    #TUNJANGAN DARI STATUS
-    if status == 'Single':
-        tunsta = 100000
-    elif status == 'Keluarga':
-        tunsta = 300000
+        tunjab = 0
+    # TUNJANGAN DARI TANGGUNGAN
+    if tang == 1:                   # Tunjangan Tanggungan
+        tuntang = 200000            # Tunjangan diperoleh dari jumlah tanggungan
+    elif tang == 2:                 # Apabila memiliki 1 tanggungan maka memperoleh tunjangan sebesar Rp. 200.000
+        tuntang = 2 * 200000        # Apabila memiliki 2 tanggungan maka memperoleh tunjangan sebesar Rp. 400.000
+    else:                           # Apabila memiliki 3 atau lebih tanggungan maka memperoleh tunjangan
+        tuntang = 3 * 200000        # sebesar Rp. 600.000
+    # TUNJANGAN DARI STATUS
+    if status == 'Single':          # Tunjangan Status
+        tunsta = 100000             # Tunjangan diperoleh dari status single atau Berkeluarga
+    elif status == 'Keluarga':      # Apabila single beroleh tunjangan sebesar Rp 100.000
+        tunsta = 300000             # Apabila Keluarga beroleh tunjangan sebesar Rp 300.000
     else:
         tunsta = 0
-    tot_tun = int(tunjab+tuntang+tunsta)
+
+    tot_tun = int(tunjab + tuntang + tunsta)
 
 #2. Bonus
 def bonus():
@@ -114,57 +115,57 @@ def bonus():
 
     #Bonus Jam Lembur
     if jab == "Direktur utama":
-        if 0 <= jam_lbur < 3:
+        if jam_lbur < 3:
             Bonus = 100000*jam_lbur
         else:
             Bonus = 100000*3
     elif jab == "Direktur keuangan":
-        if 0 <= jam_lbur < 5:
+        if jam_lbur < 5:
             Bonus = 75000*jam_lbur
         else:
             Bonus = 75000*5
     elif jab == "Direktur Personalia":
-        if 0 <= jam_lbur < 0:
+        if jam_lbur < 5:
             Bonus = 75000*jam_lbur
         else:
             Bonus = 75000*0
     elif jab == "Direktur Pemasaran":
-        if 0 <= jam_lbur < 3:
+        if jam_lbur < 3:
             Bonus = 75000*jam_lbur
         else:
             Bonus = 75000*3
     elif jab == "Manager Personalia":
-        if 0 <= jam_lbur < 3:
+        if jam_lbur < 3:
             Bonus = 50000*jam_lbur
         else:
             Bonus = 50000*3
     elif jab == "Admin":
-        if 0 <= jam_lbur < 4:
+        if jam_lbur < 4:
             Bonus = 50000*jam_lbur
         else:
             Bonus = 50000*4
     elif jab == "Manager Pemasaran":
-        if 0 <= jam_lbur < 5:
+        if jam_lbur < 5:
             Bonus = 50000*jam_lbur
         else:
             Bonus = 50000*5
     elif jab == "Manager Pabrik":
-        if 0 <= jam_lbur < 4:
+        if jam_lbur < 4:
             Bonus = 50000*jam_lbur
         else:
             Bonus = 50000*4
     elif jab == "Manager":
-        if 0 <= jam_lbur < 5:
+        if jam_lbur < 5:
             Bonus = 50000*jam_lbur
         else:
             Bonus = 50000*5
     elif jab == "Akuntan":
-        if 0 <= jam_lbur < 4:
+        if jam_lbur < 4:
             Bonus = 50000*jam_lbur
         else:
             Bonus = 50000*4
     elif jab == "Akuntan":
-        if 0 <= jam_lbur < 3:
+        if jam_lbur < 3:
             Bonus = 50000*jam_lbur
         else:
             Bonus = 50000*3
@@ -212,15 +213,35 @@ def edit_biodata():
     hari_kerja = str(input('Jumlah hari kerja : '))
     lembur = str(input('Jumlah jam lembur: '))
     Tanggung = str(input('Jumlah tanggungan: '))
-    stat = str(input('Status perkawinan:'))
+    stat = str(input('Status perkawinan (single/berkeluarga):'))
     Tabunng = str(input('Jumlah Tabungan :'))
     kasbn = str(input('Jumlah kasbon: '))
-    x = 'Nama              : {}\nNIK               : {}\nJabatan           : {}\nJumlah hari kerja : {}\nJumlah jam lembur : {}\nJumlah tanggungan : {}\nStatus perkawinan : {}\nJumlah Tabungan   : {}\nJumlah Kasbon     : {}\n\nDemikian surat pernyataan perubahan ini saya sampaikan, atas perhatiannya saya\nucapkan terima kasih.\n\nWassalamualaikum Wr Wb.\n\nDengan Hormat,\nKaryawan Perusahaan\n\n\n\n...............'.format(Username,Password,Jabatan,hari_kerja,lembur,Tanggung,stat,Tabunng,kasbn)
-    with open('Surat_Edit_Data_Diri.txt','a') as sp:
+    x = '        Surat Permohonan Perubahan\n-------------------------------------------\n\nKepada\nYth. Pimpinan perusahaan\nDi\nTempat\n\nAssalamulaikum Wr Wb.\n\nDengan hormat,\nDengan ini Saya Selaku Karyawan dari perusahaan yang Bapak/Ibu pimpin, saya hendak mengajukan\npermohonan perubahan terkait infomasi ataupun biodata karyawan sebagai berikut.\nNama              : {}\nNIK               : {}\nJabatan           : {}\nJumlah hari kerja : {}\nJumlah jam lembur : {}\nJumlah tanggungan : {}\nStatus perkawinan : {}\nJumlah Tabungan   : {}\nJumlah Kasbon     : {}\n\nDemikian surat pernyataan perubahan ini saya sampaikan, atas perhatiannya saya\nucapkan terima kasih.\n\nWassalamualaikum Wr Wb.\n\nDengan Hormat,\nKaryawan Perusahaan\n\n\n\n...............'.format(Username,Password,Jabatan,hari_kerja,lembur,Tanggung,stat,Tabunng,kasbn)
+    with open('Surat_Edit_Data_Diri.txt','w') as sp:
         sp.write(x)
         sp.close()
-    tampilan_menu()
-    
+    cetak_surat()
+
+def cetak_surat():
+    with open('Surat_Edit_Data_Diri.txt', 'r') as sp:
+        read = sp.read()
+        print("="*30)
+        print(read)
+        print("=" * 30)
+        sp.close()
+    h = 'k'
+    while h !='':
+        cek = input('Apakah perubahan sudah benar (y/n)? :')
+        cek = cek.lower()
+        if cek == 'y':
+            print('Mohon mencetak file Surat_Edit_Data_Diri.txt')
+            tampilan_menu()
+        elif cek == 'n':
+            edit_biodata()
+        else:
+            print('Pilihan tidak ada. Mohon mengisi kembali')
+
+
 #Rekening
 def rekening():
     print('Apakah ingin mengambil gaji?(y/n)')
@@ -268,6 +289,7 @@ def tampilan_menu():
         x = 'yummy'
         while x != ' ':
             back = input('Kembali ke menu? (y) = ')
+            back = back.lower()
             if back == 'y':
                 return tampilan_menu()
             else:
@@ -282,6 +304,7 @@ def tampilan_menu():
         x = 'yummy'
         while x != ' ':
             back = input('Kembali ke menu? (y) = ')
+            back = back.lower()
             if back == 'y':
                 return tampilan_menu()
             else:
@@ -293,6 +316,7 @@ def tampilan_menu():
         x = 'yummy'
         while x != ' ':
             back = input('Kembali ke menu? (y) = ')
+            back = back.lower()
             if back == 'y':
                 return tampilan_menu()
             else:
@@ -306,6 +330,7 @@ def tampilan_menu():
         x = 'yummy'
         while x != ' ':
             back = input('Kembali ke menu? (y) = ')
+            back = back.lower()
             if back == 'y':
                 return tampilan_menu()
             else:
