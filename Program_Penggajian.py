@@ -182,6 +182,7 @@ def kasbon():
 #4. Gaji
 def gaji():
     global gaber
+    global gapok
     tunjang()
     bonus()
     kasbon()
@@ -344,7 +345,36 @@ def tampilan_menu():
         print("Pilihan tidak ada")
         tampilan_menu()
 def cetak():
-    print('Cetak Slip Gaji') 
+   x = '           == SLIP GAJI KARYAWAN ==\n'\
+        '       ===============================\n'\
+        'Nama    : {}\n'\
+        'NIK     : {}\n'\
+        '============================================\n'\
+        'Gaji pokok  : {}\n'\
+        'Tunjangan   : {}\n'\
+        'Bonus       : {}\n'\
+        'Kasbon      : {}\n'\
+        'Tabungan    : {}\n'\
+        '--------------------------------------------\n'\
+        'Gaji bersih : {}\n'\
+        '      Mengetahui\n'\
+        '    Direktur Utama\n\n\n'\
+        '        Mika\n' \
+        '       NIK.1000'.format(Username,Password,gapok,tot_tun,tot_bonus,bon,tab,gaber)
+    with open('Slip_gaji.txt', 'w') as sp:
+        sp.write(x)
+        sp.close()
+    with open('Slip_gaji.txt', 'r') as slip:
+        file_slip = slip.read()
+        print("=" * 30)
+        print(file_slip)
+        print("=" * 30)
+        slip.close()
+    print('Mohon mencetak file Surat_Edit_Data_Diri.txt')
+    print('Jika terjadi kesalahan mohon hubungi admin untuk konfirmasi.\n'
+            '1. Untai(02345678)\n'
+            '2. Miami(02567800) ')
+    tampilan_menu() 
                   
 if __name__ == '__main__':
     while(True):
