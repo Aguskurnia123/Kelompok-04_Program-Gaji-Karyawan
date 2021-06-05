@@ -222,7 +222,7 @@ def edit_biodata():
         sp.write(x)
         sp.close()
     cetak_surat()
-
+#Menu Untuk Mencetak Surat Pernyataan Perubahan Biodata
 def cetak_surat():
     with open('Surat_Edit_Data_Diri.txt', 'r') as sp:
         read = sp.read()
@@ -344,8 +344,11 @@ def tampilan_menu():
     else:
         print("Pilihan tidak ada")
         tampilan_menu()
+
+#Mencetak slip
+#Fungsi Untuk Mencetak Slip Gaji Metode Cash
 def cetak():
-   x = '           == SLIP GAJI KARYAWAN ==\n'\
+    x = '           == SLIP GAJI KARYAWAN ==\n'\
         '       ===============================\n'\
         'Nama    : {}\n'\
         'NIK     : {}\n'\
@@ -370,7 +373,7 @@ def cetak():
         print(file_slip)
         print("=" * 30)
         slip.close()
-    print('Mohon mencetak file Surat_Edit_Data_Diri.txt')
+    print('Mohon mencetak file Slip_gaji.txt')
     print('Jika terjadi kesalahan mohon hubungi admin untuk konfirmasi.\n'
             '1. Untai(02345678)\n'
             '2. Miami(02567800) ')
