@@ -111,6 +111,7 @@ def bonus():
     global jam_lbur
     global tot_bonus
     global ach
+    global achievement
     jam_lbur = int(database[int(Password[3])]['Jam Lembur'])
 
     #Bonus Jam Lembur
@@ -170,9 +171,15 @@ def bonus():
         else:
             Bonus = 50000*3
     #Bonus Achievement
-    ach = int(database[int(Password[3])]['Gaji'])
+    ach = int(database[int(Password[3])]['Ach'])
+    if ach == 1:
+        achievement= 100000
+    elif ach == 2:
+        achievement= 200000
+    else:
+        achievement= 300000
     #Total Bonus
-    tot_bonus = int(Bonus+ach)
+    tot_bonus = int(Bonus+achievement)
     
 #3. Kasbon
 def kasbon():
@@ -186,28 +193,21 @@ def gaji():
     tunjang()
     bonus()
     kasbon()
-    tabungan()
     print('='*35)
     print('========== GAJI KARYAWAN ==========')
     print('='*35)
     sala = int(database[int(Password[3])]['Gaji'])
     gapok = int(h * sala)
-    gaber = int((gapok+tot_tun+tot_bonus)-(bon+tab))
+    gaber = int((gapok+tot_tun+tot_bonus)-(bon))
     print("- Gaji Pokok              %d "% gapok)
     print("- Tunjangan                %d "% tot_tun)
     print("- Bonus                    %d "% tot_bonus)
     print("- Kasbon                  %d "% (bon*(-1)))
-    print("- Tabungan                 %d "% (tab*(-1)))
     print("------------------------------------- +")
     print("Gaji                   Rp. %d " % gaber)
     rekening()
 
-#5. Tabungan
-def tabungan():
-    global tab
-    tab = int(0.1*int(database[int(Password[3])]['Gaji']))
-
-#6. Menu edit
+#5. Menu edit
 def edit_biodata():
     print("silakan mengisi formulir berikut sesuai perubahan biodata anda.")
     Jabatan = str(input("Jabatan :"))
@@ -215,9 +215,8 @@ def edit_biodata():
     lembur = str(input('Jumlah jam lembur: '))
     Tanggung = str(input('Jumlah tanggungan: '))
     stat = str(input('Status perkawinan (single/berkeluarga):'))
-    Tabunng = str(input('Jumlah Tabungan :'))
     kasbn = str(input('Jumlah kasbon: '))
-    x = '        Surat Permohonan Perubahan\n-------------------------------------------\n\nKepada\nYth. Pimpinan perusahaan\nDi\nTempat\n\nAssalamulaikum Wr Wb.\n\nDengan hormat,\nDengan ini Saya Selaku Karyawan dari perusahaan yang Bapak/Ibu pimpin, saya hendak mengajukan\npermohonan perubahan terkait infomasi ataupun biodata karyawan sebagai berikut.\nNama              : {}\nNIK               : {}\nJabatan           : {}\nJumlah hari kerja : {}\nJumlah jam lembur : {}\nJumlah tanggungan : {}\nStatus perkawinan : {}\nJumlah Tabungan   : {}\nJumlah Kasbon     : {}\n\nDemikian surat pernyataan perubahan ini saya sampaikan, atas perhatiannya saya\nucapkan terima kasih.\n\nWassalamualaikum Wr Wb.\n\nDengan Hormat,\nKaryawan Perusahaan\n\n\n\n...............'.format(Username,Password,Jabatan,hari_kerja,lembur,Tanggung,stat,Tabunng,kasbn)
+    x = '        Surat Permohonan Perubahan\n-------------------------------------------\n\nKepada\nYth. Pimpinan perusahaan\nDi\nTempat\n\nAssalamulaikum Wr Wb.\n\nDengan hormat,\nDengan ini Saya Selaku Karyawan dari perusahaan yang Bapak/Ibu pimpin, saya hendak mengajukan\npermohonan perubahan terkait infomasi ataupun biodata karyawan sebagai berikut.\nNama              : {}\nNIK               : {}\nJabatan           : {}\nJumlah hari kerja : {}\nJumlah jam lembur : {}\nJumlah tanggungan : {}\nStatus perkawinan : {}\nJumlah Kasbon     : {}\n\nDemikian surat pernyataan perubahan ini saya sampaikan, atas perhatiannya saya\nucapkan terima kasih.\n\nWassalamualaikum Wr Wb.\n\nDengan Hormat,\nKaryawan Perusahaan\n\n\n\n...............'.format(Username,Password,Jabatan,hari_kerja,lembur,Tanggung,stat,kasbn)
     with open('Surat_Edit_Data_Diri.txt','w') as sp:
         sp.write(x)
         sp.close()
@@ -273,9 +272,8 @@ def tampilan_menu():
           '[2] Bonus\n'
           '[3] Kasbon\n'
           '[4] Gaji\n'
-          '[5] Tabungan\n'
-          '[6] Edit Identitas\n'
-          '[7] LOGOUT ')
+          '[5] Edit Identitas\n'
+          '[6] LOGOUT ')
     print(pil_menu)
     menu = int(input("Pilih Menu>>"))
     
@@ -299,7 +297,7 @@ def tampilan_menu():
         bonus()
         print('========== BONUS ==========')
         print('- Bonus Lembur              Rp. %d ' % Bonus)
-        print('- Penghargaan               Rp. %d ' % ach)
+        print('- Penghargaan               Rp. %d ' % achievement)
         print('------------------------------------- +')
         print('Total Bonus didapat         Rp. %d ' % tot_bonus)
         x = 'yummy'
@@ -323,22 +321,10 @@ def tampilan_menu():
             else:
                 continue    
     elif menu == 4: #Menu Gaji
-        gaji()   
-    elif menu == 5:  #Menu Tabungan
-        tabungan()
-        print('========== TABUNGAN ==========')
-        print('- Tabungan bulan ini       Rp. %d' % tab)
-        x = 'yummy'
-        while x != ' ':
-            back = input('Kembali ke menu? (y) = ')
-            back = back.lower()
-            if back == 'y':
-                return tampilan_menu()
-            else:
-                continue
-    elif menu == 6:  #Menu Edit
+        gaji()
+    elif menu == 5:  #Menu Edit
         edit_biodata()
-    elif menu == 7: #Menu Log Out
+    elif menu == 6: #Menu Log Out
         login()
         tampilan_menu()      
     else:
@@ -357,13 +343,12 @@ def cetak():
         'Tunjangan   : {}\n'\
         'Bonus       : {}\n'\
         'Kasbon      : {}\n'\
-        'Tabungan    : {}\n'\
         '--------------------------------------------\n'\
         'Gaji bersih : {}\n'\
         '      Mengetahui\n'\
         '    Direktur Utama\n\n\n'\
         '        Mika\n' \
-        '       NIK.1000'.format(Username,Password,gapok,tot_tun,tot_bonus,bon,tab,gaber)
+        '       NIK.1000'.format(Username,Password,gapok,tot_tun,tot_bonus,bon,gaber)
     with open('Slip_gaji.txt', 'w') as sp:
         sp.write(x)
         sp.close()
