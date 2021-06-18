@@ -1,14 +1,14 @@
            == SLIP GAJI KARYAWAN ==
        ===============================
-Nama    : mika
+Nama    : Mika
 NIK     : 1000
 ============================================
 Gaji pokok  : 8800000
 Tunjangan   : 950000
-Bonus       : 700000
+Bonus       : 500000
 Kasbon      : 100000
 --------------------------------------------
-Gaji bersih : 10350000
+Gaji bersih : 10150000
       Mengetahui
     Direktur Utama
 

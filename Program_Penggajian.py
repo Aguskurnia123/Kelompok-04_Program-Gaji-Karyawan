@@ -32,17 +32,20 @@ def login():
                 loggedin = True
                 print('Login Berhasil.')
         if loggedin is not True:
-            print ('Data anda tidak terdaftar di dalam database silahkan : \n [1] masukkan kembali \n [2] hubungi admin ')
-            p = int(input(">>"))
-            if p == 1:
-                return login()
-            elif p ==2:
-                print("Silahkan hubungi\n"
-                      "1. Untai(02345678)\n"
-                      "2. Miami(025678001)")
-                exit()
-            else:
-                exit()
+            f = 'Love'
+            while f != "":
+                print ('Data anda tidak terdaftar di dalam database silahkan : \n [1] masukkan kembali \n [2] hubungi admin ')
+                p = str(input(">>"))
+                if p == "1":
+                    return login()
+                elif p == "2":
+                    print("Silahkan hubungi\n"
+                        "1. Untai(02345678)\n"
+                        "2. Miami(025678001)")
+                    exit()
+                else:
+                    print("Maaf Anda salah input")
+                    continue
 
 # Sign In #
 login()
@@ -264,6 +267,20 @@ def rekening():
                   data_rekening.writerow([[database[int(Password[3])]['Nama']], str(bank)])
     tampilan_menu()    
 
+#Menu LogOut
+def logout():
+    i = 'Nice'
+    while i != "":
+        k = input('Apakah anda ingin keluar? (y/n) :')
+        k = k.upper()
+        if k == 'Y':
+            exit()
+        elif k == 'N':
+            tampilan_menu()
+        else:
+            print("Maaf anda salah input")
+            continue
+
         #Menu dalam Program
 def tampilan_menu():
     print("="*30)
@@ -325,8 +342,7 @@ def tampilan_menu():
     elif menu == 5:  #Menu Edit
         edit_biodata()
     elif menu == 6: #Menu Log Out
-        login()
-        tampilan_menu()      
+        logout()
     else:
         print("Pilihan tidak ada")
         tampilan_menu()

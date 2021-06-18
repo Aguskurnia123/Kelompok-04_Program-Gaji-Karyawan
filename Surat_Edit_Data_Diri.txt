@@ -1,5 +1,5 @@
         Surat Permohonan Perubahan
--------------------------------------
+-------------------------------------------
 
 Kepada
 Yth. Pimpinan perusahaan
@@ -13,13 +13,12 @@ Dengan ini Saya Selaku Karyawan dari perusahaan yang Bapak/Ibu pimpin, saya hend
 permohonan perubahan terkait infomasi ataupun biodata karyawan sebagai berikut.
 Nama              : Mika
 NIK               : 1000
-Jabatan           : l
-Jumlah hari kerja : 3
-Jumlah jam lembur : 3
-Jumlah tanggungan : 3
-Status perkawinan : 3
-Jumlah Tabungan   : 3
-Jumlah Kasbon     : 3
+Jabatan           : Sekretaris
+Jumlah hari kerja : 22
+Jumlah jam lembur : 4
+Jumlah tanggungan : 2
+Status perkawinan : Single
+Jumlah Kasbon     : 0
 
 Demikian surat pernyataan perubahan ini saya sampaikan, atas perhatiannya saya
 ucapkan terima kasih.
