@@ -26,8 +26,12 @@ Merupakan berkas pendukung untuk mencetak gaji
 Berkas “Surat_Edit_Data_Diri.txt”\
 Merupakan berkas pendukung berupa surat pernyataan untuk verifikasi perubahan biodata karyawan
 
+Berkas "buku_rekening.csv"\
+Merupakan berkas pedukung berupa file rekapan nomor rekening pengguna 
+
 System Requirement\
 File pendukung :
+- buku_rekening.csv
 - Slip_gaji.txt
 - Surat_Edit_Data_Diri.txt
 
